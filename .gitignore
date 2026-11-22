@@ -1,0 +1,16 @@
+# Segredos e credenciais
+.env
+
+# Ambiente virtual Python
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
