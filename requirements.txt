@@ -3,3 +3,7 @@ uvicorn[standard]
 google-genai
 pydantic-settings
 python-dotenv
+sqlalchemy
+pyjwt
+bcrypt
+email-validator
