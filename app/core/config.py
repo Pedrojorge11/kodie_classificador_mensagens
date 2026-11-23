@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-3.5-flash-lite"
 
     database_url: str = "sqlite:///./classificacao_mensagens.db"
-    jwt_secret_key: str = "dev-secret-classificador-mensagens-2026"
+    jwt_secret_key: str
     jwt_algorithm: str = "HS256"
     jwt_expire_minutes: int = 120
 
