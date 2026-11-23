@@ -268,7 +268,7 @@ export default function App() {
     <div className="app-shell">
       <header className="topbar">
         <div className="brand">
-          <h1>Central de Chamados com IA</h1>
+          <h1>Anubis Helpdesk</h1>
           <p>Classificação automática via Gemini e acompanhamento por protocolo</p>
         </div>
 
