@@ -1,75 +1,97 @@
-# React + TypeScript + Vite
+# Anubis Helpdesk — Front-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interface web responsiva do Anubis Helpdesk, desenvolvida em React e TypeScript para abertura, classificação e gerenciamento inteligente de chamados de atendimento.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Cadastro e autenticação de usuários.
+- Autenticação por token JWT.
+- Painel de indicadores de atendimento.
+- Abertura de chamados com classificação automática por IA.
+- Visualização da categoria, prioridade, sentimento e confiança da classificação.
+- Exibição do resumo e da ação sugerida pela IA.
+- Consulta de chamados por protocolo.
+- Histórico de atendimentos.
+- Filtros por categoria e status.
+- Atualização do status dos chamados.
+- Roteamento automático por setor e fila de atendimento.
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
+- CSS
+- ESLint
+- Nginx
+- Docker
 
-## Expanding the ESLint configuration
+## Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 22.12 ou superior, preferencialmente da versão 22 LTS.
+- npm.
+- API FastAPI configurada e em execução.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Execução local
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+A partir da raiz do projeto, execute:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```powershell
+cd frontend
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+A interface estará disponível em:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+http://localhost:5173
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Por padrão, o front-end utiliza a API disponível em:
 
+http://127.0.0.1:8000
+
+## Configuração da API
+
+Caso seja necessário utilizar outro endereço para o back-end, crie um arquivo `.env` dentro da pasta `frontend` com a variável:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000
 ```
+
+Não armazene chaves de API, senhas ou segredos JWT nas variáveis de ambiente do front-end.
+
+## Comandos disponíveis
+
+| Comando | Descrição |
+| --- | --- |
+| `npm install` | Instala as dependências |
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Gera a versão de produção |
+| `npm run lint` | Executa a análise estática do código |
+| `npm run preview` | Visualiza a versão de produção localmente |
+
+## Execução com Docker
+
+A partir da raiz do projeto, execute:
+
+```powershell
+docker compose up --build
+```
+
+O front-end será compilado e servido pelo Nginx.
+
+Acesse:
+
+- Portal Web: http://localhost:8080
+- API FastAPI: http://localhost:8000
+- Swagger: http://localhost:8000/docs
+
+## Documentação geral
+
+Para informações sobre a arquitetura do sistema, integração com Google Gemini, banco de dados, autenticação, automação n8n e testes, consulte o [README principal](../README.md).
+
+## Autor
+
+Desenvolvido por **Pedro Jorge da Silva**.
+
+[GitHub](https://github.com/Pedrojorge11)
